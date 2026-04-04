@@ -1,0 +1,19 @@
+@use './colors' as *;
+@use 'sass:color';
+
+body {
+  font-family: 'Helvetica', sans-serif;
+  background: $primary-tan-light;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $accent-blue;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: color.scale($accent-blue, $lightness: -15%);
+  }
+}
