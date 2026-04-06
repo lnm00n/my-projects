@@ -38,20 +38,20 @@ export default {
 
 .about-page-wrapper {
   display: flex;
-  flex-direction: column;  /* stack vertically */
-  align-items: center;     /* center horizontally */
-  gap: 1.5rem;             /* space between card and keyboard */
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
   padding-top: 3rem;
 }
 
 .profile-container {
   display: flex;
-  gap: 4rem; /* bigger gap pushes text farther right */
+  gap: 4rem;
 }
 
 .about-card {
   background: $white-translucent;
-  padding: 4rem 4rem 4rem 6rem; /* top right bottom left */
+  padding: 4rem 4rem 4rem 6rem;
   border-radius: 20px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.15);
   max-width: 900px;
@@ -88,14 +88,13 @@ export default {
   background: linear-gradient(135deg, $primary-tan-light, #d9ead3);
 }
 
-/* main content area */
 .main-content {
-  margin-left: 220px; /* same as sidebar */
+  margin-left: 220px;
   padding: 3rem;
 }
 
 .keyboard-container {
-  width: 120px;            /* match card width for “laptop” effect */
+  width: 120px;
 }
 
 .keyboard-image {

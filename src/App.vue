@@ -17,11 +17,10 @@ export default {
 #app {
   display: flex;
   min-height: 100vh;
-  /* page gradient */
   background: linear-gradient(135deg, #f5f5dc, #d9ead3);
 }
 
-/* main content fills remaining space next to side nav */
+
 #app > *:not(.side-menu) {
   flex: 1;
   display: flex;

@@ -73,7 +73,7 @@
   }
   
   .side-menu a:hover {
-    color: $primary-tan-light; /* darker green on hover */
+    color: $primary-tan-light;
   }
   
   .icon {
