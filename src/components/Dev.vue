@@ -1,15 +1,13 @@
 <template>
-    <div class="dev-container">
-        <section id="resume" class="resume-section">
-            <h2>Resume</h2>
-            <p>Check out my professional experience and skills below.</p>
-        
-            <a :href="resumeUrl" download class="download-btn" @click="handleDownload">
-                <span v-if="!downloaded">⬇ Download Resume</span>
-                <span v-else>Downloaded</span>
-            </a>
-        </section>
-    </div>
+    <section id="resume" class="resume-section">
+        <h2>Resume</h2>
+        <p>Check out my professional experience and skills below.</p>
+    
+        <a :href="resumeUrl" download class="download-btn" @click="handleDownload">
+            <span v-if="!downloaded">⬇ Download Resume</span>
+            <span v-else>Downloaded</span>
+        </a>
+    </section>
   </template>
   
   <script>
@@ -35,14 +33,6 @@
   
   <style lang="scss" scoped>
   @use '../styles/colors' as *;
-  
-  .dev-container {
-    min-height: 100vh;
-    background-image: url('../assets/toile.png');
-    background-size: contain;      // fits entire image
-    background-position: center;
-    background-repeat: no-repeat;
-  }
   
   .resume-section {
     padding: 3rem 2rem;
