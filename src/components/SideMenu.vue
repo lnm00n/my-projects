@@ -45,7 +45,7 @@
     top: 0;
     height: 100vh;
     width: 220px;
-    background: #9eb995;
+    background: $secondary-green-medium;
     padding-top: 1.5rem;
     box-shadow: 2px 0 8px rgba(0,0,0,0.15);
     font-family: 'Segoe UI', sans-serif;

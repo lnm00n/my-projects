@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <SideMenu />
-    <router-view />
+    <div class="main-content">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -17,15 +19,11 @@ export default {
 #app {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f5dc, #d9ead3);
 }
 
-
-#app > *:not(.side-menu) {
+.main-content {
+  margin-left: 220px;
+  padding: 3rem;
   flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
 }
 </style>

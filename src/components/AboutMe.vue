@@ -39,9 +39,7 @@ export default {
 .about-page-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  padding-top: 3rem;
+  align-items: flex-start;
 }
 
 .profile-container {

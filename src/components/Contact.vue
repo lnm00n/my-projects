@@ -1,27 +1,35 @@
 <template>
-  <div class="contact-container">
-    <h2>Let's conntect!</h2>
+  <section class="contact-section">
+    <div class="contact-card">
+      <h2>Let's connect!</h2>
 
-    <TextInput v-model="name" label="Name" />
+      <TextInput v-model="name" label="Name" />
 
-    <TextInput
-      v-model="email"
-      type="email"
-      label="Email"
-    />
+      <TextInput
+        v-model="email"
+        type="email"
+        label="Email"
+      />
 
-    <TextInput
-      v-model="phone"
-      type="phone"
-      label="Phone"
-    />
+      <TextInput
+        v-model="phone"
+        type="phone"
+        label="Phone"
+      />
 
-    <button :disabled="!name || !email">Submit</button>
+      <button 
+        :disabled="!name || !email || !phone" 
+        :class="{ active: name && email && phone }"
+        @click="handleSubmit"
+      >
+        Submit
+      </button>
 
-    <p v-if="submitted" class="success">
-      Contact submitted!
-    </p>
-  </div>
+      <p v-if="submitted" class="success">
+        Contact submitted!
+      </p>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -54,7 +62,7 @@ export default {
 
       this.submitted = true
 
-      // reset form (optional)
+      // reset form
       this.name = ""
       this.email = ""
       this.phone = ""
@@ -66,38 +74,48 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/colors' as *;
 
-.contact-container {
+.contact-section {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.contact-card {
+  background: $white-translucent;
+  padding: 3rem 4rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  max-width: 500px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  gap: 1.5rem;
+  text-align: center;
 }
 
 button {
-  margin-top: 1rem;
-  padding: 0.6rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
   border: none;
-  border-radius: 6px;
-  background: $secondary-green-light;
-  color: white;
+  border-radius: 8px;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-/* disabled state (lighter green) */
-button:disabled {
-  background: $primary-green;
   cursor: not-allowed;
-  opacity: 0.8;
+  transition: all 0.2s ease;
+  color: white;
+  background-color: $secondary-green-light;
 }
 
-/* hover only when enabled */
-button:not(:disabled):hover {
+button.active {
+  background-color: $primary-green;
+  cursor: pointer;
+}
+
+button.active:hover {
   opacity: 0.9;
 }
 
 .success {
-  margin-top: 1rem;
   color: green;
+  margin-top: 0.5rem;
 }
 </style>
