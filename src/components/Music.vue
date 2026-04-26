@@ -6,19 +6,6 @@
         <p class="subtitle">
           A mix of practice, inspiration, and shows I’m attending.
         </p>
-  
-        <section class="section">
-          <h2>Photos</h2>
-          <div class="photo-grid">
-            <div
-              v-for="(photo, index) in photos"
-              :key="index"
-              class="photo-card"
-            >
-              <img :src="photo.src" :alt="photo.alt" />
-            </div>
-          </div>
-        </section>
 
         <section class="section">
             <h2>Shows</h2>
@@ -51,7 +38,20 @@
                 </div>
                 </div>
             </div>
-            </section>
+        </section>
+
+        <section class="section">
+          <h2>Photos</h2>
+          <div class="photo-grid">
+            <div
+              v-for="(photo, index) in photos"
+              :key="index"
+              class="photo-card"
+            >
+              <img :src="photo.src" :alt="photo.alt" />
+            </div>
+          </div>
+        </section>
   
       </div>
     </div>

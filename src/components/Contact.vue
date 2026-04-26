@@ -2,6 +2,35 @@
   <section class="contact-section">
     <div class="contact-card">
       <h2>Let's connect!</h2>
+      <div class="contact-info">
+
+        <div class="info-item">
+          <span class="label">Phone</span>
+          <span class="value">(215) 317-9745</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Email</span>
+          <a href="mailto:lnmooney@comcast.net" class="value">
+            lnmooney@comcast.net
+          </a>
+        </div>
+
+        <div class="info-item">
+          <span class="label">LinkedIn</span>
+          <a 
+            href="https://www.linkedin.com/in/leah-mooney-661709126" 
+            target="_blank"
+            class="value"
+          >
+            View Profile
+          </a>
+        </div>
+      </div>
+
+      <p class="intro">
+        Feel free to reach out directly or use the form below
+      </p>
 
       <TextInput v-model="name" label="Name" />
 
@@ -100,6 +129,7 @@ export default {
   flex-direction: column;
   gap: 1.5rem;
   text-align: center;
+  align-items: center;
 }
 
 button {
@@ -110,7 +140,7 @@ button {
   font-weight: 600;
   cursor: not-allowed;
   transition: all 0.2s ease;
-  color: white;
+  color: $color-white;
   background-color: $color-green-light;
 }
 
@@ -124,7 +154,50 @@ button.active:hover {
 }
 
 .success {
-  color: green;
+  color: $color-success;
   margin-top: 0.5rem;
+}
+
+.contact-info {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.intro {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: $color-gray-dark;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.label {
+  font-size: 0.8rem;
+  color: $color-gray-light;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.value {
+  font-size: 0.9rem;
+  color: $color-gray-darkest;
+}
+
+.info-item a.value {
+  color: $color-green-primary;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-item a.value:hover {
+  text-decoration: underline;
 }
 </style>

@@ -20,7 +20,7 @@
       modelValue: String,
       type: {
         type: String,
-        default: "text" // text | email | phone
+        default: "text"
       },
       label: String,
       placeholder: String
@@ -79,21 +79,35 @@
   }
   </script>
   
-  <style scoped>
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-  }
+<style lang="scss" scoped>
+@use '../styles/colors' as *;
+
+label {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  color: $color-gray-dark;
+  text-align: left;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  max-width: 280px;
+  width: 100%;
+}
   
-  input {
-    padding: 0.5rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid $color-gray-lightest;
+}
   
-  .error {
-    color: red;
-    font-size: 0.8rem;
-  }
-  </style>
+.error {
+  color: $color-error;
+  font-size: 0.8rem;
+}
+</style>
