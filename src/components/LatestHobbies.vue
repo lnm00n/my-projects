@@ -1,92 +1,75 @@
-
 <template>
-    <div class="hobbies-container">
-        <section id="hobbies" class="hobbies-frame-section">
-            <h2>Latest Hobbies</h2>
-            <div class="hobbies-row">
-                <router-link to="/piano" class="hobby-frame">Piano</router-link>
-                <router-link to="/golf" class="hobby-frame">Golf</router-link>
-                <router-link to="/travel" class="hobby-frame">Travel</router-link>
-            </div>
-            <div class="hobbies-row">
-                <router-link to="/animals" class="hobby-frame">Animals</router-link>
-                <router-link to="/snacking" class="hobby-frame">Snacking</router-link>
-                <router-link to="/running" class="hobby-frame">Running</router-link>
-            </div>
-        </section>
+  <div class="hobbies-page">
+    <div class="content">
+      <h1>Latest Hobbies</h1>
+      <p class="subtitle">
+        Things I’ve been enjoying outside of engineering lately.
+      </p>
+
+      <div class="hobby-grid">
+        <router-link to="/piano" class="hobby-frame">Piano</router-link>
+        <router-link to="/golf" class="hobby-frame">Golf</router-link>
+        <router-link to="/travel" class="hobby-frame">Travel</router-link>
+        <router-link to="/animals" class="hobby-frame">Animals</router-link>
+        <router-link to="/snacking" class="hobby-frame">Snacking</router-link>
+        <router-link to="/running" class="hobby-frame">Running</router-link>
+      </div>
     </div>
+  </div>
 </template>
   
 <script>
 export default {
-name: "Dev",
-data() {
-    return {
-    downloaded: false,
-    resumeUrl: new URL('../assets/MooneyResume_Philly.pdf', import.meta.url).href
-    }
-},
-methods: {
-    handleDownload() {
-    this.downloaded = true;
-
-    setTimeout(() => {
-        this.downloaded = false;
-    }, 2000);
-    }
-}
+name: "LatestHobbies",
 }
 </script>
   
 <style lang="scss" scoped>
 @use '../styles/colors' as *;
-.hobbies-frame-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 2rem;
-  box-sizing: border-box;
+.hobbies-page {
   min-height: 100vh;
-  width: 100%;
-  background-image: url('../assets/toile.png');
-  background-repeat: repeat; // tiles the image
-  background-size: auto;
-  background-position: 0 0;
+  background: $color-green-light;
+  display: flex;
+  justify-content: center;
 }
 
-.hobbies-frame-section h2 {
-  margin-bottom: 2rem;
-  font-size: 2rem;
+.content {
+  max-width: 900px;
+  width: 100%;
+  padding: 3rem 2rem;
   text-align: center;
 }
 
-.hobbies-row {
-  display: flex;
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 180px);
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  width: 100%;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .hobby-frame {
-  background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #d7e6dc;
+  border-radius: 14px;
+
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  flex: 1 1 0;
-  max-width: 200px;
-  height: 150px;
+
+  font-size: 1.3rem;
+  font-weight: 500;
   text-decoration: none;
-  color: #000;
-  cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
+  color: #1f2937;
+
+  transition: all 0.2s ease;
 }
 
 .hobby-frame:hover {
-  transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 1);
+  transform: translateY(-5px);
+  border-color: $color-green-primary;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
 </style>

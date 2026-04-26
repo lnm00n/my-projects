@@ -32,7 +32,6 @@
     },
     computed: {
       inputType() {
-        // keep actual HTML types simple
         if (this.type === "email") return "email"
         return "text"
       }

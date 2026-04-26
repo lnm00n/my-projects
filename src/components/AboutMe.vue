@@ -1,20 +1,51 @@
 <template>
-  <div class="about-page-wrapper">
-    <div class="about-card">
-      <div class="profile-container">
-        <img :src="cowImage" alt="KeyboardGirl" class="about-photo" />
-        <div class="profile-text">
-          <h1>
-            KeyboardLeah 
-            <img :src="drawnKeyboardImage" alt="Custom keyboard" class="keyboard-image"/>
-          </h1>
-          <p>
-            I'm a junior software developer passionate about building intuitive, user-friendly apps. 
-            Nature lover, classical music player, golfer, runner, traveler, and snacker.
-          </p>
-        </div>
+  <div class="page">
+
+    <div class="about-container">
+      <div class="text-section">
+        <h1>Leah Mooney</h1>
+        <h2>Software Engineer</h2>
+        <p>
+          I’m a software engineer focused on building clean, user-friendly applications
+          with Vue and .NET. I enjoy creating intuitive experiences and solving real-world problems.
+        </p>
+      </div>
+
+      <div class="image-section">
+        <img :src="cowImage" alt="Profile photo" />
       </div>
     </div>
+
+    <section class="experience-section">
+      <h2>Experience & Background</h2>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Resume</h3>
+          <p>Download my resume to learn more about my experience.</p>
+
+          <a
+            :href="resumeUrl"
+            download
+            class="primary-btn"
+            @click="handleDownload"
+          >
+            <span v-if="!downloaded">↓ Download Resume</span>
+            <span v-else>Downloaded ✓</span>
+          </a>
+        </div>
+
+        <div class="info-card">
+          <h3>Education</h3>
+          <p>Master’s in Computer Science (Cybersecurity focus).</p>
+          <a href="https://www.cs.tufts.edu" target="_blank" class="link">
+            View Program →
+          </a>
+        </div>
+      </div>
+
+    </section>
+
   </div>
 </template>
 
@@ -27,7 +58,18 @@ export default {
   data() {
     return {
       cowImage, 
-      drawnKeyboardImage
+      drawnKeyboardImage,
+      downloaded: false,
+      resumeUrl: new URL('../assets/MooneyResume_Philly.pdf', import.meta.url).href
+    }
+  },
+  methods: {
+    handleDownload() {
+      this.downloaded = true;
+
+      setTimeout(() => {
+        this.downloaded = false;
+      }, 2000);
     }
   }
 }
@@ -36,67 +78,53 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/colors' as *;
 
-.about-page-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.profile-container {
-  display: flex;
+.about-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
   gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
-.about-card {
-  background: $white-translucent;
-  padding: 4rem 4rem 4rem 6rem;
-  border-radius: 20px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-  max-width: 900px;
-  width: 100%;
+.experience-section {
+  margin-top: 8rem;
 }
 
-.profile-text h1 {
-  margin: 0;
-  font-size: 3rem;
-  color: $primary-green;
-  font-family: 'Segoe UI', sans-serif;
+.text-section h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
 }
 
-.profile-text p {
-  margin-top: 1.5rem;
-  font-size: 1.3rem;
-  color: $primary-green-dark;
-  line-height: 1.7;
-  max-width: 500px;
-  font-family: 'Segoe UI', sans-serif;
+.text-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
-.about-photo {
-  width: 280px;
-  height: 280px;
+.image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-section img {
+  width: 260px;
+  height: 260px;
   object-fit: cover;
   border-radius: 50%;
-  border: 5px solid $secondary-green-medium;
+  border: 3px solid #4f7c5a;
 }
 
-#app {
-  display: flex;
-  min-height: 100vh;
-  background: linear-gradient(135deg, $primary-tan-light, #d9ead3);
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
-.main-content {
-  margin-left: 220px;
-  padding: 3rem;
-}
-
-.keyboard-container {
-  width: 120px;
-}
-
-.keyboard-image {
-  width: 14%;
-  height: auto;
+.info-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
 }
 </style>

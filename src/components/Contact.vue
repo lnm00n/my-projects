@@ -53,7 +53,7 @@ export default {
         return
       }
 
-      // simulate sending data
+      // simulate sending data TODO
       console.log("Form submitted:", {
         name: this.name,
         email: this.email,
@@ -81,7 +81,7 @@ export default {
 }
 
 .contact-card {
-  background: $white-translucent;
+  background: $color-white-translucent;
   padding: 3rem 4rem;
   border-radius: 20px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.15);
@@ -102,11 +102,11 @@ button {
   cursor: not-allowed;
   transition: all 0.2s ease;
   color: white;
-  background-color: $secondary-green-light;
+  background-color: $color-green-light;
 }
 
 button.active {
-  background-color: $primary-green;
+  background-color: $color-green-primary;
   cursor: pointer;
 }
 

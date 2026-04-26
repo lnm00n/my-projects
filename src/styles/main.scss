@@ -2,18 +2,24 @@
 @use 'sass:color';
 
 body {
-  font-family: 'Helvetica', sans-serif;
-  background: $primary-tan-light;
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: $color-green-light;
+  color: #1f2937;
+}
+
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
 }
 
 a {
-  color: $accent-blue;
+  color: $color-green-primary;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.2s ease;
+}
 
-  &:hover {
-    color: color.scale($accent-blue, $lightness: -15%);
-  }
+a:hover {
+  color: $color-green-dark;
 }

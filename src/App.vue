@@ -1,29 +1,34 @@
 <template>
   <div id="app">
-    <SideMenu />
-    <div class="main-content">
+    <TopNav />
+
+    <main class="main-content">
       <router-view />
-    </div>
+    </main>
   </div>
 </template>
 
 <script>
-import SideMenu from './components/SideMenu.vue'
+import TopNav from './components/NavBar.vue'
 
 export default {
-  components: { SideMenu }
+  components: {
+    TopNav
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
+@use './styles/colors' as *;
 #app {
-  display: flex;
   min-height: 100vh;
+  background: $color-white;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .main-content {
-  margin-left: 220px;
-  padding: 3rem;
-  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
 }
 </style>
