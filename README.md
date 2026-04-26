@@ -16,7 +16,7 @@ Testing: Playwright
 Build Tool: Vite
 
 Getting Started
-git clone https://github.com/your-username/my-projects
+git clone https://github.com/lnm00n/portfolio.git
 cd my-projects
 npm install
 npm run dev
@@ -25,3 +25,4 @@ Future Improvements
 Enhance UI/UX with improved animations
 Expand automated test coverage
 Improve accessibility and responsiveness
+Add an admin page
