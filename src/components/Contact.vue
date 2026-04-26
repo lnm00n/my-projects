@@ -34,6 +34,7 @@
 
 <script>
 import TextInput from './TextInput.vue'
+import { supabase } from "../lib/supabase"
 
 export default {
   components: { TextInput },
@@ -46,22 +47,30 @@ export default {
     }
   },
   methods: {
-    handleSubmit() {
+    async handleSubmit() {
       // basic validation
       if (!this.name || !this.email) {
         alert("Please fill out name and email")
         return
       }
 
-      // simulate sending data TODO
-      console.log("Form submitted:", {
-        name: this.name,
-        email: this.email,
-        phone: this.phone
-      })
+      const { error } = await supabase
+        .from("contacts")
+        .insert([
+          {
+            name: this.name,
+            email: this.email,
+            phone: this.phone
+          }
+        ])
+
+      if (error) {
+        console.error(error)
+        alert("Something went wrong")
+        return
+      }
 
       this.submitted = true
-
       // reset form
       this.name = ""
       this.email = ""

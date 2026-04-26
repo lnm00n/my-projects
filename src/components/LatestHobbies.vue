@@ -7,7 +7,7 @@
       </p>
 
       <div class="hobby-grid">
-        <router-link to="/piano" class="hobby-frame">Piano</router-link>
+        <router-link to="/music" class="hobby-frame">Music</router-link>
         <router-link to="/golf" class="hobby-frame">Golf</router-link>
         <router-link to="/travel" class="hobby-frame">Travel</router-link>
         <router-link to="/animals" class="hobby-frame">Animals</router-link>
