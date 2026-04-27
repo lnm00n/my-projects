@@ -6,11 +6,11 @@
         </div>
   
         <ul class="nav-links">
-          <li><router-link to="/">About</router-link></li>
+          <router-link to="/" data-testid="nav-about">About</router-link>
           <li><router-link to="/projects">Full Stack Projects</router-link></li>
           <li><router-link to="/qa">QA</router-link></li>
-          <li><router-link to="/latestHobbies">Hobbies</router-link></li>
-          <li><router-link to="/contact">Contact</router-link></li>
+          <li><router-link to="/latestHobbies" data-testid="nav-hobbies">Hobbies</router-link></li>
+          <li><router-link to="/contact" data-testid="nav-contact">Contact</router-link></li>
         </ul>
       </div>
     </nav>
