@@ -5,10 +5,40 @@
       A selection of engineering work and systems I’ve contributed to.
     </p>
 
+    <div class="tabs">
+      <button 
+        :class="{ active: selectedCategory === 'all' }"
+        @click="selectedCategory = 'all'"
+      >
+        All
+      </button>
+
+      <button 
+        :class="{ active: selectedCategory === 'fullstack' }"
+        @click="selectedCategory = 'fullstack'"
+      >
+        Full Stack
+      </button>
+
+      <button 
+        :class="{ active: selectedCategory === 'frontend' }"
+        @click="selectedCategory = 'frontend'"
+      >
+        Frontend
+      </button>
+
+      <button 
+        :class="{ active: selectedCategory === 'operational' }"
+        @click="selectedCategory = 'operational'"
+      >
+        Operational
+      </button>
+    </div>
+
     <div class="card-grid">
       <div
         class="card"
-        v-for="(project, index) in projects"
+        v-for="(project, index) in filteredProjects"
         :key="project.title"
         :class="{ active: activeIndex === index }"
         @click="toggleCard(index)"
@@ -46,10 +76,12 @@ export default {
   data() {
     return {
       activeIndex: null,
+      selectedCategory: "all",
       projects: 
       [
         {
           title: "Shared Digital Library",
+          category: "frontend",
           subtitle: "Reusable component system",
           overview: "Centralized library of reusable UI components shared across applications.",
           work: [
@@ -63,6 +95,7 @@ export default {
         },
         {
           title: "OneUI",
+          category: "fullstack",
           subtitle: "Modernized internal insurance platform",
           overview: "Unified legacy systems into a modern web platform.",
           work: [
@@ -76,6 +109,7 @@ export default {
         },
         {
           title: "Email Notification System",
+          category: "fullstack",
           subtitle: "Automated transactional email pipeline",
           overview: "System for generating and sending policy-related emails.",
           work: [
@@ -89,6 +123,7 @@ export default {
         },
         {
           title: "Moratorium API",
+          category: "fullstack",
           subtitle: "Moratorium management system",
           overview: "API for creating, updating, and removing moratoriums.",
           work: [
@@ -102,6 +137,7 @@ export default {
         },
         {
           title: "Aggregate Monitoring",
+          category: "operational",
           subtitle: "Tracking aggregate limits",
           overview: "Monitoring system to ensure limits stayed within thresholds.",
           work: [
@@ -116,9 +152,27 @@ export default {
       ]
     };
   },
+
+  computed: {
+    filteredProjects() {
+      if (this.selectedCategory === "all") {
+        return this.projects;
+      }
+      return this.projects.filter(
+        project => project.category === this.selectedCategory
+      );
+    }
+  },
+
   methods: {
     toggleCard(index) {
       this.activeIndex = this.activeIndex === index ? null : index;
+    }
+  },
+
+  watch: {
+    selectedCategory() {
+      this.activeIndex = null;
     }
   }
 };
@@ -226,6 +280,26 @@ export default {
 .section p {
   font-size: 0.9rem;
   color: $color-gray-darkest;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.tabs button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid $color-off-white;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.tabs button.active {
+  background: $color-gray-darkest;
+  color: white;
 }
 
 @keyframes fadeIn {

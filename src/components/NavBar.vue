@@ -7,7 +7,7 @@
   
         <ul class="nav-links">
           <router-link to="/" data-testid="nav-about">About</router-link>
-          <li><router-link to="/projects">Full Stack Projects</router-link></li>
+          <li><router-link to="/projects">Projects</router-link></li>
           <li><router-link to="/qa">QA</router-link></li>
           <li><router-link to="/latestHobbies" data-testid="nav-hobbies">Hobbies</router-link></li>
           <li><router-link to="/contact" data-testid="nav-contact">Contact</router-link></li>
@@ -27,8 +27,8 @@ export default {
 
 .top-nav {
   width: 100%;
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
+  background: $color-white;
+  border-bottom: 1px solid $color-off-white;
   position: sticky;
   top: 0;
   z-index: 10;
